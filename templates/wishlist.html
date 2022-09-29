@@ -1,14 +1,51 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h5>Nama: </h5>
-<b>{{nama}}</b>
 
-<table>
-    <tr>
-    <th>Nama Barang</th>
-    <th>Harga Barang</th>
-    <th>Deskripsi</th>
+<nav class="navbar navbar-expand-lg bg-info">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">{{nama}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://en.wiktionary.org/wiki/mukbang">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">Disabled</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <button><a href="{% url 'wishlist:show_logout_user' %}">Logout</a></button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<br>
+<br>
+
+<table class="table table-primary table-striped-columns">
+    <tr class = "table-light">
+    <th scope="col">Nama Barang</th>
+    <th scope="col">Harga Barang</th>
+    <th scope="col">Deskripsi</th>
     </tr>
     {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
 
@@ -22,7 +59,10 @@
 {% endfor %}
 
 </table>
+<br>
+<br>
 <h5>Sesi terakhir login: {{ last_login }}</h5>
-<button><a href="{% url 'wishlist:show_logout_user' %}">Logout</a></button>
+
+
 
 {% endblock content %}
